@@ -1,0 +1,34 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://demoapps.qspiders.com/ui/mouseHover?sublist=0');
+  await page.getByRole('textbox', { name: 'Enter Password' }).click();
+  await page.locator('li:nth-child(15) > section:nth-child(2) > svg > path').click();
+  await page.getByRole('link', { name: 'Click & Hold' }).click();
+  await page.locator('#circle').click();
+  await page.locator('#circle').click();
+  await page.locator('#circle').click();
+  await page.locator('#circle').click();
+  await page.locator('#circle').click();
+  await page.locator('#circle').click();
+  await page.locator('#circle').click();
+  await page.locator('#circle').click();
+  await page.locator('#circle').dblclick();
+  await page.locator('#circle').dblclick();
+  await page.getByRole('link', { name: 'Mouse Hover' }).click();
+  await page.getByRole('textbox', { name: 'Enter Password' }).click();
+  await page.locator('div').filter({ hasText: /^Drag & DropMouse HoverClick & Hold$/ }).click();
+  await page.getByRole('link', { name: 'Drag & Drop' }).click();
+  await page.getByText('Drag Me').click();
+  await page.getByText('Drag Me').click();
+  await page.locator('div').filter({ hasText: /^Drag Me$/ }).nth(3).click();
+  await page.getByText('Drag Me').click();
+  await page.getByText('Drag Me').click();
+  await page.locator('div').filter({ hasText: /^Drag Me$/ }).nth(3).click();
+  await page.getByText('Drag Me').click();
+  await page.getByText('Drag Me').click();
+  await page.getByText('Drag Me').click();
+  await page.locator('div').filter({ hasText: /^Drag Me$/ }).nth(3).click();
+  await page.getByText('Drag Me').click();
+  await page.locator('div').filter({ hasText: /^Drag Me$/ }).nth(3).click();
+});
