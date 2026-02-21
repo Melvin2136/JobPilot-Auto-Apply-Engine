@@ -1,0 +1,10 @@
+Hello Hiring Team,
+
+I am excited to apply for the {{jobTitle}} role at {{company}}.
+I have hands-on QA and automation experience with Playwright and CI pipelines,
+and I am looking for entry to mid-level opportunities aligned to testing and DevOps.
+
+Thank you for your time.
+
+Regards,
+Melvin George Daniel

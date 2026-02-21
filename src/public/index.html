@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobPilot Auto Apply Engine</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>JobPilot Auto Apply Engine</h1>
+      <p>Daily job scan, smart filtering, auto-application, and report tracking.</p>
+      <div class="actions">
+        <button id="scanBtn">Run Scan</button>
+        <button id="applyBtn">Run Scan + Apply</button>
+      </div>
+      <p id="statusText">Status: idle</p>
+    </section>
+
+    <section class="grid">
+      <article class="card"><h3>Total Jobs Detected</h3><p id="totalJobs">0</p></article>
+      <article class="card"><h3>Total Applied</h3><p id="totalApplied">0</p></article>
+      <article class="card"><h3>Applied Today</h3><p id="appliedToday">0</p></article>
+      <article class="card"><h3>New Openings</h3><p id="newOpenings">0</p></article>
+    </section>
+
+    <section class="card full">
+      <h3>Platform Breakdown</h3>
+      <ul id="platformList"></ul>
+    </section>
+
+    <section class="card full">
+      <h3>Latest Report</h3>
+      <pre id="reportBox">No report yet.</pre>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
