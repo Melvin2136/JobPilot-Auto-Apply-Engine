@@ -3,34 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JobPilot Auto Apply Engine</title>
+  <title>JobPilot Dream Digger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
   <main class="wrap">
-    <section class="hero">
-      <h1>JobPilot Auto Apply Engine</h1>
-      <p>Daily job scan, smart filtering, auto-application, and report tracking.</p>
+    <section class="hero panel">
+      <p class="eyebrow">Smart Career Automation</p>
+      <h1>Dream Job Digger for Tech Parks</h1>
+      <p class="subtitle">
+        Real-time scan + auto-apply for QA and DevOps roles, including
+        Technopark Trivandrum, Infopark Kochi, and Bangalore tech park feeds.
+      </p>
       <div class="actions">
         <button id="scanBtn">Run Scan</button>
         <button id="applyBtn">Run Scan + Apply</button>
       </div>
-      <p id="statusText">Status: idle</p>
+      <p id="statusText" class="status">Status: idle</p>
     </section>
 
     <section class="grid">
-      <article class="card"><h3>Total Jobs Detected</h3><p id="totalJobs">0</p></article>
-      <article class="card"><h3>Total Applied</h3><p id="totalApplied">0</p></article>
-      <article class="card"><h3>Applied Today</h3><p id="appliedToday">0</p></article>
-      <article class="card"><h3>New Openings</h3><p id="newOpenings">0</p></article>
+      <article class="card panel"><h3>Total Jobs Detected</h3><p id="totalJobs">0</p></article>
+      <article class="card panel"><h3>Total Applied</h3><p id="totalApplied">0</p></article>
+      <article class="card panel"><h3>Applied Today</h3><p id="appliedToday">0</p></article>
+      <article class="card panel"><h3>New Openings</h3><p id="newOpenings">0</p></article>
     </section>
 
-    <section class="card full">
+    <section class="card full panel">
       <h3>Platform Breakdown</h3>
       <ul id="platformList"></ul>
     </section>
 
-    <section class="card full">
+    <section class="card full panel">
+      <div class="section-head">
+        <h3>Latest Openings</h3>
+      </div>
+      <div id="jobsList" class="jobs-list"></div>
+    </section>
+
+    <section class="card full panel">
       <h3>Latest Report</h3>
       <pre id="reportBox">No report yet.</pre>
     </section>

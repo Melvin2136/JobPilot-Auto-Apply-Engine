@@ -8,6 +8,43 @@ function setText(id, value) {
   document.getElementById(id).textContent = value;
 }
 
+function renderJobs(jobs) {
+  const root = document.getElementById("jobsList");
+  root.innerHTML = "";
+
+  if (!jobs.length) {
+    root.textContent = "No openings available yet. Run a scan to populate this section.";
+    return;
+  }
+
+  for (const job of jobs) {
+    const row = document.createElement("article");
+    row.className = "job-row";
+
+    const left = document.createElement("div");
+    const title = document.createElement("p");
+    title.className = "job-title";
+    title.textContent = job.title || "Untitled role";
+
+    const meta = document.createElement("p");
+    meta.className = "job-meta";
+    meta.textContent = `${job.company || "Unknown"} | ${job.location || "N/A"} | ${job.source || "N/A"}`;
+
+    left.appendChild(title);
+    left.appendChild(meta);
+
+    const link = document.createElement("a");
+    link.href = job.link;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "Open job";
+
+    row.appendChild(left);
+    row.appendChild(link);
+    root.appendChild(row);
+  }
+}
+
 async function refresh() {
   const metrics = await getJson("/api/metrics");
   setText("totalJobs", metrics.totalJobsDetected || 0);
@@ -30,6 +67,15 @@ async function refresh() {
 
   const latest = await getJson("/api/reports/latest");
   setText("reportBox", latest ? JSON.stringify(latest, null, 2) : "No report yet.");
+
+  const jobs = await getJson("/api/jobs");
+  const sorted = jobs
+    .slice()
+    .sort((a, b) => new Date(b.discoveredAt || 0) - new Date(a.discoveredAt || 0));
+  const preferred = sorted.filter((j) =>
+    /technopark|infopark|bagmane|bangalore/i.test(`${j.source} ${j.location}`)
+  );
+  renderJobs((preferred.length ? preferred : sorted).slice(0, 12));
 }
 
 async function run(endpoint, label) {

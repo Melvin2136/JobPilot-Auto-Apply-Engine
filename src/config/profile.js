@@ -12,6 +12,6 @@ module.exports = {
   ],
   experienceYearsMin: 0,
   experienceYearsMax: 4,
-  locations: ["Remote", "India"],
+  locations: ["Remote", "India", "Kochi", "Trivandrum", "Bangalore"],
   emailRecipient: "melvingeorgedaniel7@gmail.com",
 };
